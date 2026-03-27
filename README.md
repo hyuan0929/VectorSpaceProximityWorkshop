@@ -1,135 +1,56 @@
 # 🧠 Vector Space Proximity Workshop
 
-## 📚 Overview
+## 👥 Group Information
 
-This workshop introduces foundational Natural Language Processing (NLP)
-concepts and builds toward **Vector Space Proximity** and **Information
-Retrieval (IR) evaluation**.
+**Group Name:** Group 8  
 
-Students implement:
+**Members:**
 
--   Term-Document Incidence Matrix\
--   Term Frequency (TF)\
--   Log Frequency Weighting\
--   Document Frequency (DF)\
--   Inverse Document Frequency (IDF)\
--   TF-IDF\
--   Cosine Similarity
+- Haibo Yuan (Student ID: 9010929)  
+- Abdalla Mohamed (Student ID: 9089339)  
 
-These are then used to:
+---
 
--   Retrieve documents based on similarity\
--   Evaluate retrieval systems using IR metrics
+## 📊 Dataset
 
-------------------------------------------------------------------------
+We used the **20 Newsgroups dataset** from scikit-learn.
 
-## 🎯 Learning Objectives
+- Number of documents: ~11,000  
+- Number of categories: 20  
+- Domain: Technology, science, politics, recreation, and more  
 
-By the end of this workshop, students will be able to:
+This dataset is suitable for Information Retrieval tasks because it contains diverse topics and a large number of documents.
 
--   Represent text as vectors using TF-IDF\
--   Compute similarity using cosine similarity\
--   Build a basic retrieval system\
--   Evaluate IR systems using:
-    -   Precision, Recall, F1\
-    -   Precision@K\
-    -   Average Precision (AP)\
-    -   Mean Reciprocal Rank (MRR)\
--   Understand relevance vs keyword matching\
--   Connect classical IR to modern AI systems
+---
 
-------------------------------------------------------------------------
+## ⚙️ Retrieval Approach
 
-## 🧪 Hands-On Components
+We implemented an Information Retrieval system using:
 
-Students will:
+- Text preprocessing (tokenization, normalization, stop-word removal, stemming)  
+- Vector space representations:
+  - Binary incidence  
+  - Term Frequency (TF)  
+  - TF-IDF  
+- Cosine similarity for document retrieval  
 
--   Build a preprocessing pipeline:
-    -   Tokenization\
-    -   Normalization\
-    -   Stop-word removal\
-    -   Stemming
--   Implement from scratch:
-    -   Incidence Matrix\
-    -   TF and Log TF\
-    -   DF and IDF\
-    -   TF-IDF
--   Compute:
-    -   Cosine similarity\
-    -   Ranked retrieval
--   Evaluate:
-    -   Confusion matrix\
-    -   Precision, Recall, F1\
-    -   Precision@K\
-    -   Average Precision (AP)\
-    -   Mean Reciprocal Rank (MRR)\
-    -   Kappa (inter-judge agreement)
+---
 
-------------------------------------------------------------------------
+## 📈 Evaluation
 
-## 🔍 Relevance to RAG (Retrieval-Augmented Generation)
+We evaluated the system using:
 
-This workshop focuses on the **retrieval layer** of modern AI systems.
+- Confusion Matrix  
+- Precision, Recall, F1-score  
+- Precision@K  
+- Average Precision (AP)  
+- Mean Reciprocal Rank (MRR)  
+- Cohen’s Kappa (for agreement analysis)  
 
-### Classical IR → Modern AI
+---
 
-  Classical IR         Modern Systems
-  -------------------- ----------------
-  TF-IDF               Embeddings
-  Cosine Similarity    Vector Search
-  Document Retrieval   RAG
+## 🎯 Key Insight
 
-### RAG Pipeline Connection
+TF-IDF combined with cosine similarity provides better retrieval performance because it highlights important terms while reducing the impact of common words.
 
-1.  Represent documents as vectors\
-2.  Represent query as vector\
-3.  Compute similarity (vector proximity)\
-4.  Retrieve top-k documents\
-5.  Pass to LLM for generation
-
-This workshop focuses on steps **1--4**.
-
-------------------------------------------------------------------------
-
-## 🏗️ Example Use Case
-
-Travel Information Retrieval System:
-
--   Query: *"Is there an evening bus to Toronto?"*\
--   System:
-    -   Convert query to vector\
-    -   Compare with document vectors\
-    -   Retrieve most relevant schedules
-
-------------------------------------------------------------------------
-
-## ⚖️ Key Takeaways
-
--   Vector space proximity is the **foundation of retrieval systems**\
--   TF-IDF balances **local importance** and **global rarity**\
--   Cosine similarity enables **semantic matching**\
--   Evaluation must be based on **information need**, not keywords
-
-------------------------------------------------------------------------
-
-## 🚀 Next Steps
-
--   Replace TF-IDF with embeddings\
--   Use vector databases (FAISS, Chroma)\
--   Build full RAG pipelines\
--   Integrate with LLMs
-
-------------------------------------------------------------------------
-
-## 👨‍🏫 Instructor Notes
-
-This workshop is designed for:
-
--   Entry-level ML/NLP students\
--   Hands-on, code-first learning\
--   Progression from math → implementation → evaluation
-
-Emphasis is placed on:
-
-> Understanding **why retrieval works** before moving to modern AI
-> systems.
+The evaluation shows that relevant documents are ranked higher, demonstrating that retrieval is based on the **information need**, not just keyword matching.
